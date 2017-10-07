@@ -1,8 +1,4 @@
 defmodule MathematicsTest do
-  use ExUnit.Case
-  doctest Mathematics
+  use ExUnit.Case, async: true
 
-  test "greets the world" do
-    assert Mathematics.hello() == :world
-  end
 end
