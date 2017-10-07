@@ -9,12 +9,11 @@ defmodule Mathematics.Statistics.MeanTest do
 
   @tag numtests: @nb_tests
   property 'the sum of the distance of each element with the mean is zero' do
-    forall enumerable <- list(int()) do
-      implies length(enumerable) > 0 do
-        mean = Statistics.mean(enumerable)
+    forall enumerable <- non_empty(list(int())) do
+      mean = Statistics.mean(enumerable)
 
-        assert_in_delta Enum.reduce(enumerable, 0, fn(value, acc) -> acc + value - mean end), 0, 0.00000000001
-      end
+      assert_in_delta Enum.reduce(enumerable, 0, fn(value, acc) -> acc + value - mean end), 0, 0.00000000001
     end
   end
+
 end
